@@ -1,7 +1,12 @@
-{ "namespace": "bfui:button_common",
+{
+  "namespace": "bfui:button_common",
+
+  // Classic button label with shadow.
   "new_ui_binding_button_label_classic@common_buttons.new_ui_binding_button_label": {
     "shadow": true
   },
+
+  // Pocket-style buttons.
   "button_pocket_template@common_buttons.light_text_button": {
     "$button_type_panel": "bfui:button_common.new_ui_binding_button_label_classic",
     "$default_button_texture": "textures/ui/betafied/pocket_regular_button",
@@ -21,6 +26,8 @@
     "focus_change_right": "$focus_override_right",
     "focus_change_left": "$pressed_button_name"
   },
+
+  // Classic buttons. The hover texture provides the selected-button highlight.
   "button_classic_template@common_buttons.light_text_button": {
     "$button_type_panel": "bfui:button_common.new_ui_binding_button_label_classic",
     "$default_button_texture": "textures/ui/vanilla_default",
