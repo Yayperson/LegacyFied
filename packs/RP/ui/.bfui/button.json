@@ -2,47 +2,148 @@
   "namespace": "bfui:button_common",
 
   // Classic button label with shadow.
+  // The text animation is enabled only in the hover state.
   "new_ui_binding_button_label_classic@common_buttons.new_ui_binding_button_label": {
-    "shadow": true
+    "shadow": true,
+    "$label_anims|default": [],
+    "variables": [
+      {
+        "requires": "$hover_state",
+        "$label_anims": [
+          "@bfui:button_common.pause_button_text_fade_up"
+        ]
+      }
+    ],
+    "anims": "$label_anims"
   },
 
-  // Pocket-style buttons.
+  // Selected-button text pulse: pale yellow to yellow.
+  "pause_button_text_fade_up": {
+    "anim_type": "color",
+    "easing": "linear",
+    "duration": 0.6,
+    "from": [0.863, 0.863, 0.431],
+    "to": [0.863, 0.863, 0],
+    "next": "@bfui:button_common.pause_button_text_fade_down"
+  },
+  "pause_button_text_fade_down": {
+    "anim_type": "color",
+    "easing": "linear",
+    "duration": 0.6,
+    "from": [0.863, 0.863, 0],
+    "to": [0.863, 0.863, 0.431],
+    "next": "@bfui:button_common.pause_button_text_fade_up"
+  },
+
+  // Custom state panel that animates only its button image
+  // while the button is hovered/focused.
+  "classic_button_state_panel": {
+    "type": "panel",
+    "layer": 1,
+    "$button_alpha|default": 1,
+    "$button_size_override|default": ["100%", "100%"],
+    "size": "$button_size_override",
+    "$content_alpha|default": 1,
+    "$button_image|default": "common_buttons.button_image",
+    "$button_image_visible|default": true,
+    "$button_image_size|default": ["100% - 2px", "100% - 2px"],
+    "$border_visible|default": true,
+    "$border_alpha|default": 1,
+    "$border_layer|default": 2,
+    "$button_anchor_to|default": "center",
+    "$button_anchor_from|default": "center",
+    "$button_image_fill|default": false,
+    "$button_image_color|default": [1, 1, 1],
+    "$image_anchor|default": "center",
+    "$image_offset|default": [0, 0],
+    "$button_content_size|default": ["100% - 6px", "100% - 6px"],
+    "$highlight_anims|default": [],
+    "anchor_to": "$button_anchor_to",
+    "anchor_from": "$button_anchor_from",
+    "variables": [
+      {
+        "requires": "$hover_state",
+        "$highlight_anims": [
+          "@bfui:anims.pause_button_highlight_fade_up"
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "$button_image@$button_image": {
+          "ignored": "(not $button_image_visible)",
+          "size": "$button_image_size",
+          "offset": "$image_offset",
+          "anchor_from": "$image_anchor",
+          "anchor_to": "$image_anchor",
+          "layer": 1,
+          "fill": "$button_image_fill",
+          "color": "$button_image_color",
+          "anims": "$highlight_anims"
+        }
+      },
+      {
+        "button_content": {
+          "type": "panel",
+          "size": "$button_content_size",
+          "controls": [
+            {
+              "$button_type_panel@$button_type_panel": {
+                "layer": 3
+              }
+            }
+          ]
+        }
+      },
+      {
+        "border@common_buttons.focus_border": {
+          "color": "$border_color",
+          "layer": "$border_layer",
+          "alpha": "$border_alpha",
+          "ignored": "(not $border_visible)"
+        }
+      }
+    ]
+  },
+
+  // Pocket-style buttons remain unchanged.
   "button_pocket_template@common_buttons.light_text_button": {
     "$button_type_panel": "bfui:button_common.new_ui_binding_button_label_classic",
     "$default_button_texture": "textures/ui/betafied/pocket_regular_button",
     "$default_text_color": "$light_button_hover_text_color",
     "$hover_button_texture": "textures/ui/betafied/pocket_regular_button_hover",
-    "$hover_text_color": [ 1, 0.9607, 0.8117 ],
+    "$hover_text_color": [1, 0.9607, 0.8117],
     "$pressed_button_texture": "textures/ui/betafied/pocket_regular_button_pressed",
-    "$pressed_text_color": [ 1, 0.9607, 0.8117 ],
+    "$pressed_text_color": [1, 0.9607, 0.8117],
     "$locked_button_texture": "textures/ui/betafied/pocket_regular_button_pressed",
     "$locked_text_color": "$light_button_hover_text_color",
-    "size": [ 200, 20 ],
-    "$button_image_size": [ "100%", "100%" ],
+    "size": [200, 20],
+    "$button_image_size": ["100%", "100%"],
     "$border_visible": false,
     "$border_alpha": 0,
-    "$button_pressed_offset": [ 0, 0 ],
+    "$button_pressed_offset": [0, 0],
     "focus_identifier": "$pressed_button_name",
     "focus_change_right": "$focus_override_right",
     "focus_change_left": "$pressed_button_name"
   },
 
-  // Classic buttons. The hover texture provides the selected-button highlight.
+  // Classic buttons with animated selected-state visuals.
   "button_classic_template@common_buttons.light_text_button": {
     "$button_type_panel": "bfui:button_common.new_ui_binding_button_label_classic",
+    "$button_state_panel": "bfui:button_common.classic_button_state_panel",
     "$default_button_texture": "textures/ui/vanilla_default",
     "$default_text_color": "$light_button_hover_text_color",
     "$hover_button_texture": "textures/ui/vanilla_pressed",
-    "$hover_text_color": [ 1, 0.9607, 0.8117 ],
+    "$hover_text_color": [1, 0.9607, 0.8117],
     "$pressed_button_texture": "textures/ui/vanilla_pressed",
-    "$pressed_text_color": [ 1, 0.9607, 0.8117 ],
+    "$pressed_text_color": [1, 0.9607, 0.8117],
     "$locked_button_texture": "textures/ui/vanilla_locked",
     "$locked_text_color": "$light_button_hover_text_color",
-    "size": [ 200, 20 ],
-    "$button_image_size": [ "100%", "100%" ],
+    "size": [200, 20],
+    "$button_image_size": ["100%", "100%"],
     "$border_visible": false,
     "$border_alpha": 0,
-    "$button_pressed_offset": [ 0, 0 ],
+    "$button_pressed_offset": [0, 0],
     "focus_identifier": "$pressed_button_name",
     "focus_change_right": "$focus_override_right",
     "focus_change_left": "$pressed_button_name"
