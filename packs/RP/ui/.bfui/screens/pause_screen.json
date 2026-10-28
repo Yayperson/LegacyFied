@@ -53,7 +53,7 @@
         "pause_logo": {
           "type": "image",
           "texture": "textures/ui/title",
-          "size": [198, 58],
+          "size": [196, 56],
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
           "offset": [0, 12]
@@ -63,7 +63,7 @@
         "button_panel": {
           "type": "stack_panel",
           "orientation": "vertical",
-          "size": [130, "100%c"],
+          "size": [134, "100%c"],
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
           "offset": [0, "32%"],
@@ -71,7 +71,7 @@
           "controls": [
             {
               "return_to_game_button@bfui:button_common.button_classic_template": {
-                "size": [130, 14],
+                "size": [134, 14],
                 "$pressed_button_name": "button.menu_continue",
                 "$button_text": "Resume Game",
                 "anchor_to": "top_middle",
@@ -101,7 +101,7 @@
             },
             {
               "settings_button@bfui:button_common.button_classic_template": {
-                "size": [130, 20],
+                "size": [134, 14],
                 "$pressed_button_name": "button.menu_settings",
                 "$button_text": "Help & Options",
                 "anchor_to": "top_middle",
@@ -116,7 +116,7 @@
             },
             {
               "dressing_room_button_own@bfui:button_common.button_classic_template": {
-                "size": [130, 20],
+                "size": [134, 14],
                 "$pressed_button_name": "button.to_profile_or_skins_screen",
                 "$button_text": "profileScreen.header",
                 "$focus_id": "profile_button"
@@ -130,7 +130,7 @@
             },
             {
               "more_player@bfui:button_common.button_classic_template": {
-                "size": [130, 20],
+                "size": [134, 14],
                 "$pressed_button_name": "button.friends_drawer",
                 "$button_text": "Save Game",
                 "$focus_id": "profile_button",
@@ -147,7 +147,7 @@
             },
             {
               "quit_button@bfui:button_common.button_classic_template": {
-                "size": [130, 20],
+                "size": [134, 14],
                 "$pressed_button_name": "button.menu_quit",
                 "$button_text": "Exit Game",
                 "anchor_to": "top_middle",
