@@ -56,7 +56,7 @@
           "size": [198, 58],
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "offset": [-2, 12]
+          "offset": [0, 12]
         }
       },
       {
@@ -71,7 +71,7 @@
           "controls": [
             {
               "return_to_game_button@bfui:button_common.button_classic_template": {
-                "size": [130, 20],
+                "size": [130, 14],
                 "$pressed_button_name": "button.menu_continue",
                 "$button_text": "Resume Game",
                 "anchor_to": "top_middle",
