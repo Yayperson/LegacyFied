@@ -73,7 +73,7 @@
               "return_to_game_button@bfui:button_common.button_classic_template": {
                 "size": [130, 20],
                 "$pressed_button_name": "button.menu_continue",
-                "$button_text": "Back to game",
+                "$button_text": "Resume Game",
                 "anchor_to": "top_middle",
                 "anchor_from": "top_middle",
                 "$button_focus_precedence": 1,
@@ -103,7 +103,7 @@
               "settings_button@bfui:button_common.button_classic_template": {
                 "size": [130, 20],
                 "$pressed_button_name": "button.menu_settings",
-                "$button_text": "Options...",
+                "$button_text": "Help & Options",
                 "anchor_to": "top_middle",
                 "anchor_from": "top_middle"
               }
@@ -132,7 +132,7 @@
               "more_player@bfui:button_common.button_classic_template": {
                 "size": [130, 20],
                 "$pressed_button_name": "button.friends_drawer",
-                "$button_text": "Player(s)",
+                "$button_text": "Save Game",
                 "$focus_id": "profile_button",
                 "property_bag": {
                   "#context": "ingame"
@@ -149,7 +149,7 @@
               "quit_button@bfui:button_common.button_classic_template": {
                 "size": [130, 20],
                 "$pressed_button_name": "button.menu_quit",
-                "$button_text": "Save and quit to title",
+                "$button_text": "Exit Game",
                 "anchor_to": "top_middle",
                 "anchor_from": "top_middle",
                 "$focus_override_down": "icon_panel_main_focus",
