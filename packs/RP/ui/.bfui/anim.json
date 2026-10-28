@@ -1,4 +1,6 @@
-{ "namespace": "bfui:anims",
+{
+  "namespace": "bfui:anims",
+
   // Pause screen saving world text.
   "saving_world_anim_01": {
     "anim_type": "alpha",
@@ -24,7 +26,7 @@
     "to": 1,
     "next": "@bfui:anims.saving_world_anim_04"
   },
- "saving_world_anim_04": {
+  "saving_world_anim_04": {
     "anim_type": "alpha",
     "easing": "in_quart",
     "duration": 0.5,
@@ -47,7 +49,26 @@
     "from": 1,
     "to": 0
   },
-  // Hud
+
+  // Controls the highlight on selected buttons in the pause UI.
+  "pause_button_highlight_fade_up": {
+    "anim_type": "alpha",
+    "easing": "linear",
+    "duration": 0.6,
+    "from": 0.5,
+    "to": 1,
+    "next": "@bfui:anims.pause_button_highlight_fade_down"
+  },
+  "pause_button_highlight_fade_down": {
+    "anim_type": "alpha",
+    "easing": "linear",
+    "duration": 0.6,
+    "from": 1,
+    "to": 0.5,
+    "next": "@bfui:anims.pause_button_highlight_fade_up"
+  },
+
+  // HUD
   "anim_chat_bg_wait_bottom": {
     "anim_type": "wait",
     "duration": "$chat_item_lifetime",
