@@ -42,6 +42,8 @@ Any modern items, blocks, and mobs are transparently removed keeping the experie
 
 Betafied is 100% open source under the **[GNU AGPLv3](LICENSE)**. Fork it, run your own server, and build something legendary with it.
 
+^ this is a fork of betafied, LegacyUI4Betafied is meant to be put ontop of betafieds resource pack if you want to play with a legacy console edition flavor! this resource pack specifically targets the versions of Legacy Console editions title updates throughout tu1 to tu4, the last version before the hunger mechanic was added, though, its still a work in progress.
+
 ---
 
 ## Key Features
