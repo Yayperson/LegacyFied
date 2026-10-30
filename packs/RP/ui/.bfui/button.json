@@ -9,7 +9,7 @@
       {
         "requires": "$hover_state",
         "$label_anims": [
-          "@bfui:button_common.pause_button_text_fade_up"
+          "@bfui:anims.pause_button_text_fade_up"
         ]
       }
     ],
@@ -40,6 +40,7 @@
     "$image_offset|default": [0, 0],
     "$button_content_size|default": ["100% - 6px", "100% - 6px"],
     "$highlight_anims|default": [],
+
     "anchor_to": "$button_anchor_to",
     "anchor_from": "$button_anchor_from",
 
