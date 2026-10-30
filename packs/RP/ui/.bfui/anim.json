@@ -50,22 +50,40 @@
     "to": 0
   },
 
-  // Controls the highlight on selected buttons in the pause UI.
+  // Pause button highlight animation.
   "pause_button_highlight_fade_up": {
     "anim_type": "alpha",
-    "easing": "linear",
-    "duration": 0.6,
+    "easing": "out_quart",
+    "duration": 0.5,
     "from": 0.5,
     "to": 1,
     "next": "@bfui:anims.pause_button_highlight_fade_down"
   },
   "pause_button_highlight_fade_down": {
     "anim_type": "alpha",
-    "easing": "linear",
-    "duration": 0.6,
+    "easing": "in_quart",
+    "duration": 0.5,
     "from": 1,
     "to": 0.5,
     "next": "@bfui:anims.pause_button_highlight_fade_up"
+  },
+
+  // Pause button text animation.
+  "pause_button_text_fade_up": {
+    "anim_type": "color",
+    "easing": "out_quart",
+    "duration": 0.5,
+    "from": [0.863, 0.863, 0.431],
+    "to": [0.863, 0.863, 0],
+    "next": "@bfui:anims.pause_button_text_fade_down"
+  },
+  "pause_button_text_fade_down": {
+    "anim_type": "color",
+    "easing": "in_quart",
+    "duration": 0.5,
+    "from": [0.863, 0.863, 0],
+    "to": [0.863, 0.863, 0.431],
+    "next": "@bfui:anims.pause_button_text_fade_up"
   },
 
   // HUD
