@@ -1,9 +1,13 @@
 {
   "namespace": "bfui:button_common",
 
-  // Classic button label with shadow.
   "new_ui_binding_button_label_classic@common_buttons.new_ui_binding_button_label": {
     "shadow": true,
+    "font_size": "normal",
+    "font_scale_factor": 1.0,
+    "$button_font_size": "normal",
+    "$button_font_scale_factor": 1.0,
+    "$button_text_max_size": ["100%", 20],
     "$label_anims|default": [],
     "variables": [
       {
@@ -16,17 +20,13 @@
     "anims": "$label_anims"
   },
 
-  // Custom button state panel.
-  // The base button image stays static.
-  // Only the separate hover overlay is animated.
   "classic_button_state_panel": {
     "type": "panel",
     "layer": 1,
-    "$button_alpha|default": 1,
+    "$button_alpha|default": "$content_alpha",
     "$button_size_override|default": ["100%", "100%"],
     "size": "$button_size_override",
     "$content_alpha|default": 1,
-    "$button_image|default": "common_buttons.button_image",
     "$button_image_visible|default": true,
     "$button_image_size|default": ["100% - 2px", "100% - 2px"],
     "$border_visible|default": true,
@@ -55,7 +55,10 @@
 
     "controls": [
       {
-        "$button_image@$button_image": {
+        "button_base": {
+          "type": "image",
+          "texture": "$default_button_texture",
+          "alpha": "$button_alpha",
           "ignored": "(not $button_image_visible)",
           "size": "$button_image_size",
           "offset": "$image_offset",
@@ -104,7 +107,6 @@
     ]
   },
 
-  // Pocket-style buttons remain unchanged.
   "button_pocket_template@common_buttons.light_text_button": {
     "$button_type_panel": "bfui:button_common.new_ui_binding_button_label_classic",
     "$default_button_texture": "textures/ui/betafied/pocket_regular_button",
@@ -125,7 +127,6 @@
     "focus_change_left": "$pressed_button_name"
   },
 
-  // Classic buttons with animated selected-state visuals.
   "button_classic_template@common_buttons.light_text_button": {
     "$button_type_panel": "bfui:button_common.new_ui_binding_button_label_classic",
     "$button_state_panel": "bfui:button_common.classic_button_state_panel",
@@ -137,6 +138,9 @@
     "$pressed_text_color": [1, 0.9607, 0.8117],
     "$locked_button_texture": "textures/ui/vanilla_locked",
     "$locked_text_color": "$light_button_hover_text_color",
+    "$button_font_size": "normal",
+    "$button_font_scale_factor": 1.0,
+    "$button_text_max_size": ["100%", 20],
     "size": [200, 20],
     "$button_image_size": ["100%", "100%"],
     "$border_visible": false,
