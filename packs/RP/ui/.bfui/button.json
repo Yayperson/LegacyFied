@@ -2,7 +2,6 @@
   "namespace": "bfui:button_common",
 
   // Classic button label with shadow.
-  // The text animation is enabled only in the hover state.
   "new_ui_binding_button_label_classic@common_buttons.new_ui_binding_button_label": {
     "shadow": true,
     "$label_anims|default": [],
@@ -17,26 +16,9 @@
     "anims": "$label_anims"
   },
 
-  // Selected-button text pulse: pale yellow to yellow.
-  "pause_button_text_fade_up": {
-    "anim_type": "color",
-    "easing": "linear",
-    "duration": 0.6,
-    "from": [0.863, 0.863, 0.431],
-    "to": [0.863, 0.863, 0],
-    "next": "@bfui:button_common.pause_button_text_fade_down"
-  },
-  "pause_button_text_fade_down": {
-    "anim_type": "color",
-    "easing": "linear",
-    "duration": 0.6,
-    "from": [0.863, 0.863, 0],
-    "to": [0.863, 0.863, 0.431],
-    "next": "@bfui:button_common.pause_button_text_fade_up"
-  },
-
-  // Custom state panel that animates only its button image
-  // while the button is hovered/focused.
+  // Custom button state panel.
+  // The base button image stays static.
+  // Only the separate hover overlay is animated.
   "classic_button_state_panel": {
     "type": "panel",
     "layer": 1,
@@ -60,6 +42,7 @@
     "$highlight_anims|default": [],
     "anchor_to": "$button_anchor_to",
     "anchor_from": "$button_anchor_from",
+
     "variables": [
       {
         "requires": "$hover_state",
@@ -68,6 +51,7 @@
         ]
       }
     ],
+
     "controls": [
       {
         "$button_image@$button_image": {
@@ -78,7 +62,20 @@
           "anchor_to": "$image_anchor",
           "layer": 1,
           "fill": "$button_image_fill",
-          "color": "$button_image_color",
+          "color": "$button_image_color"
+        }
+      },
+      {
+        "hover_highlight": {
+          "type": "image",
+          "texture": "$hover_button_texture",
+          "size": "$button_image_size",
+          "offset": "$image_offset",
+          "anchor_from": "$image_anchor",
+          "anchor_to": "$image_anchor",
+          "layer": 2,
+          "ignored": "(not $hover_state)",
+          "alpha": 0.5,
           "anims": "$highlight_anims"
         }
       },
